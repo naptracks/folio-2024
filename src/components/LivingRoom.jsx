@@ -8,9 +8,9 @@ import { easing } from "maath"
 
 function Light() {
     const ref = useRef()
-    useFrame((state, delta) => {
-        easing.dampE(ref.current.rotation, [(state.pointer.y * Math.PI) / 50, (state.pointer.x * Math.PI) / 20, 0], 0.2, delta)
-    })
+    // useFrame((state, delta) => {
+    //     easing.dampE(ref.current.rotation, [(state.pointer.y * Math.PI) / 50, (state.pointer.x * Math.PI) / 20, 0], 0.2, delta)
+    // })
     return (
         <group ref={ref}>
             <directionalLight position={[5, 5, -8]} castShadow intensity={5} shadow-mapSize={2048} shadow-bias={-0.001}>

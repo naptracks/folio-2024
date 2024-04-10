@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { Center, useGLTF } from '@react-three/drei'
 import './EarthMaterial'
 import './AtmosphereMaterial'
+import { forwardRef } from 'react'
 
 
 
@@ -53,27 +54,17 @@ function Earth({ children, ...props }) {
     )
 }
 
-export function Astronaut({ vec = new THREE.Vector3(), children, ...props }) {
+export const Astronaut = forwardRef((
+
+    { vec = new THREE.Vector3(), children, material, ...props },
+    ref,
+
+) => {
 
     const { nodes, materials } = useGLTF('/astronaut.glb')
-
-
     return (
 
-        <mesh {...props} geometry={nodes.Astronaut_mesh.geometry} material={materials.Astronaut_mat} />
-
+        <mesh ref={ref} {...props} geometry={nodes.Astronaut_mesh.geometry} material={material ? material : materials.Astronaut_mat} />
     )
 }
-
-
-export function Tesla({ vec = new THREE.Vector3(), children, ...props }) {
-
-    const tesla = useGLTF('/tesla.glb')
-
-
-
-    return (
-
-        <primitive object={tesla.scene} {...props} />
-    )
-}
+)

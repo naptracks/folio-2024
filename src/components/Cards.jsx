@@ -160,6 +160,7 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
     return (
         <group {...props}>
             <mesh
+            castShadow
                 name={name}
                 onPointerOver={(e) => (e.stopPropagation(), hover(true))}
                 onPointerOut={() => hover(false)}

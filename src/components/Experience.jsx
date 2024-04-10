@@ -13,6 +13,7 @@ export default function Experience(props) {
 
     const { height: h, width: w } = useThree(state => state.viewport)
     const scale = (w < 7 && w > 5) ? .8 : (w < 5 ? .6 : 1.2)
+ 
 
     return (
 
@@ -35,8 +36,11 @@ export default function Experience(props) {
                 <PerspectiveCamera makeDefault fov={80} near={.1} far={80} position={[0, 0, 6]} />
                 <Lights />
                 <Scroll>
-                    <Scene position={[0, 0, 0]} />
-                    <Center bottom position={[0, -h * 1.17, 2]}>
+                    {
+                        w > 7 ? <Scene position={[0, 0, 0]} /> : null
+                    }
+                    
+                    <Center bottom position={[0, -h * 1.15, 1]}>
                         <Text3D height={.05} letterSpacing={-0.05} size={.9} font='./Fira_Bold.json'>
                             Projets
                             <meshStandardMaterial roughness={0.5} metalness={1} color={'slategray'} />

@@ -38,16 +38,16 @@ function App() {
             ['+', '+', '+', '+'].map((_, i) => <p style={{ fontSize: '2.4rem', fontWeight: '300' }} key={i}>{_}</p>)
           }
         </div>
-        <Canvas drp={[1, 2]} gl={{ antialias: true }} shadows className='hide-scrollbar' style={{ borderRadius: 20 }} >
+        <Canvas drp={[1, 1.5]} gl={{ antialias: false }} shadows className='hide-scrollbar' style={{ borderRadius: 20 }} >
           <color attach="background" args={['#191920']} />
           <Suspense fallback={
-          < Placeholder  />
+            < Placeholder />
           }
           >
             <Experience style={styles} />
             <Stars depth={100} speed={0} radius={100} saturation={1} />
           </Suspense>
-    
+
         </ Canvas>
       </div>
     </div>
