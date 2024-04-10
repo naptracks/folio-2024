@@ -85,9 +85,11 @@ export default function Header(props) {
                             </AccordionItem>
 
                         </Accordion>
-                        <Button className='mt-[3rem] mb-0 w-[10rem] h-[3rem] text-lg'>
-                            Curriculum Vitae
-                        </Button>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/folio-cm-2024.appspot.com/o/CesarMartel_DevFullStack_CV2024.pdf?alt=media&token=f3c797b3-7583-4b22-bdbd-aa7efc6e9462" target="_blank">
+                            <Button className='mt-[3rem] mb-0 w-[10rem] h-[3rem] text-lg'>
+                                Curriculum Vitae
+                            </Button>
+                        </a>
                     </div>
                 </div>
 
