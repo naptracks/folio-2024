@@ -1,9 +1,11 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
-import {  useFrame, useThree } from '@react-three/fiber'
-import { useCursor, Image, Text } from '@react-three/drei'
+import { useFrame, useThree } from '@react-three/fiber'
+import { useCursor, Image, Text, Html } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 import { easing } from 'maath'
+
+
 
 
 
@@ -49,9 +51,9 @@ const images = [
         }
     },
     {
-        position: [-2.15 * x, 0, 1.5 * x], rotation: [0, Math.PI / 2.5, 0], name: 'projet5', url: '/projects/le-comptoir-des-roses.png',
+        position: [-2.15 * x, 0, 1.9 * x], rotation: [0, Math.PI / 2.5, 0], name: 'projet5', url: '/projects/le-comptoir-des-roses.png',
         info: {
-            title: 'Le Comptoiir des Roses',
+            title: 'Le Comptoir des Roses',
             link: '',
             github: '',
             technos: 'ReactJS, NodeJS, Firebase, TypeScript'
@@ -69,7 +71,7 @@ const images = [
         }
     },
     {
-        position: [2.15 * x, 0, 1.5 * x], rotation: [0, -Math.PI / 2.5, 0], name: 'projet8', url: '/projects/marble-game.png',
+        position: [2.15 * x, 0, 1.9 * x], rotation: [0, -Math.PI / 2.5, 0], name: 'projet8', url: '/projects/marble-game.png',
         info: {
             title: 'Marble Game',
             link: '',
@@ -90,7 +92,7 @@ const Cards = (props) => {
         <group  {...props}>
             <group position={[0, -0.5, 0]} >
                 <Frames images={images} />
-              
+
             </group>
         </group>
     )
@@ -103,9 +105,9 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
     const [, setLocation] = useLocation()
     const { width: w } = useThree(state => state.viewport)
 
-    
+
     useEffect(() => {
-        
+
         clicked.current = ref.current.getObjectByName(params?.id)
         if (clicked.current) {
             clicked.current.parent.updateWorldMatrix(true, true)
@@ -137,13 +139,17 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
     const [, params] = useRoute('/item/:id')
     const [hovered, hover] = useState(false)
     const [rnd] = useState(() => Math.random())
+    const ref = useRef()
+
+    console.log(ref.current)
+
 
     const isActive = params?.id === name
     useCursor(hovered)
     useFrame((state, dt) => {
         // portal.current.material.zoom =( 2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 1) * .3
         easing.damp3(portal.current.scale, [0.85 * (!isActive && hovered ? 0.85 : 1), 0.9 * (!isActive && hovered ? 0.905 : 1), 1], 0.1, dt)
-        easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
+        // easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
     })
 
     const { title, link, github, technos } = info
@@ -151,7 +157,7 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
     return (
         <group {...props}>
             <mesh
-            castShadow
+                castShadow
                 name={name}
                 onPointerOver={(e) => (e.stopPropagation(), hover(true))}
                 onPointerOut={() => hover(false)}
@@ -161,7 +167,7 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
             >
 
                 <boxGeometry />
-                <meshStandardMaterial color={'slategray'} metalness={0.5} roughness={0.5} envMapIntensity={2} />
+                <meshStandardMaterial color={'#0e7490'} metalness={.8} roughness={0.4} envMapIntensity={2} />
                 <mesh ref={frame} raycast={() => null} scale={[0.9, 0.93, 0.9]} position={[0, 0, 0]}>
                     <boxGeometry />
                     <meshBasicMaterial toneMapped={false} fog={false} />
@@ -170,20 +176,21 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
                 <Image zoom={1} raycast={() => null} ref={portal} position={[0, 0, 0.7]} url={url} />
 
             </mesh>
-            <group>
-                <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
 
+            <mesh>
+                    <Text onPointerOver={(e) => (e.stopPropagation(), hover(true))}
+                        onPointerOut={() => hover(false)} ref={ref} onClick={() => window.open(link, "_blank")} position={[0.55, GOLDENRATIO, 0]} maxWidth={.7} anchorX="left" anchorY="top" fontWeight="bold" color='white' toneMapped fontSize={0.065}>
                         {title}
+                    </Text>
 
-                </Text>
-                <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
+                <Text maxWidth={0.1}  color='white' anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
                     {github}
                 </Text>
-                <Text maxWidth={0.1} anchorX="left" anchorY={.4} position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
+                <Text maxWidth={0.1} color='white' anchorX="left" anchorY={.4} position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
                     {technos}
                 </Text>
-            </group>
-          
+            </mesh>
+
         </group>
     )
 }

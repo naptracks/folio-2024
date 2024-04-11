@@ -43,7 +43,7 @@ export default function Experience(props) {
                     <Center bottom position={[0, -h * 1.15, 1]}>
                         <Text3D height={.05} letterSpacing={-0.05} size={.9} font='./Fira_Bold.json'>
                             Projets
-                            <meshStandardMaterial roughness={0.5} metalness={1} color={'slategray'} />
+                            <meshStandardMaterial roughness={0.5} metalness={1} color={'#0e7490'} />
                         </Text3D>
                     </Center>
                     <Cards position={[0, -h * 1.5, 0]} w={w} scale={scale} />

@@ -16,7 +16,7 @@ export default function EarthScene({ astronaut = false, ...props }) {
 
         <group {...props}>
             <Center>
-                <Earth scale={1.25} position={[0, 0, 0]} />
+                <Earth scale={1} position={[0, 0, 0]} />
             </Center>
 
         </group>
