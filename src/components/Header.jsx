@@ -17,14 +17,14 @@ export default function Header(props) {
             <Scroll html className='w-full md:w-[41rem] md:mr-4 z-[-1]' >
                 <div className='relative bg-white rounded-xl m-4  pb-[5rem] pt-[1rem]'>
                     <div className="m-[2rem] pl-2" >
-                        <h1 className="text-[1.4rem] md:text-3xl text-zinc-900" >ensemble,</h1>
-                        <h1 className="text-[1.4rem] md:text-3xl text-zinc-900">faisons de grandes choses.</h1>
+                        <h1 className="text-[1.4rem] md:text-3xl text-cyan-800" >ensemble,</h1>
+                        <h1 className="text-[1.4rem] md:text-3xl text-cyan-800">faisons de grandes choses.</h1>
                     </div>
                     <div className="header-html  ">
                         <Accordion type="single" collapsible className="pr-10">
                             <AccordionItem value="item-3" >
                                 <AccordionTrigger >
-                                    <div className="flex">
+                                    <div className="flex text-cyan-700">
                                         <CgProfile className="w-8 h-8 mr-4" />
                                         Profile
                                     </div>
@@ -36,7 +36,7 @@ export default function Header(props) {
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-1">
-                                <AccordionTrigger > <div className="flex">
+                                <AccordionTrigger > <div className="flex text-cyan-700">
                                     <GiStrong className="w-8 h-8 mr-4" />
                                     Compétences
                                 </div></AccordionTrigger>
@@ -66,7 +66,7 @@ export default function Header(props) {
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-2">
-                                <AccordionTrigger > <div className="flex">
+                                <AccordionTrigger > <div className="flex text-cyan-700">
                                     <IoIosFlash className="w-8 h-8 mr-4" />
                                     Expériences
                                 </div></AccordionTrigger>
@@ -75,7 +75,7 @@ export default function Header(props) {
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-4">
-                                <AccordionTrigger > <div className="flex">
+                                <AccordionTrigger > <div className="flex text-cyan-700">
                                     <BsGraphUpArrow className="w-8 h-8 mr-4" />
                                     Pourquoi me choisir
                                 </div></AccordionTrigger>
@@ -86,7 +86,7 @@ export default function Header(props) {
 
                         </Accordion>
                         <a href="https://firebasestorage.googleapis.com/v0/b/folio-cm-2024.appspot.com/o/CesarMartel_DevFullStack_CV2024.pdf?alt=media&token=f3c797b3-7583-4b22-bdbd-aa7efc6e9462" target="_blank">
-                            <Button className='mt-[3rem] mb-0 w-[10rem] h-[3rem] text-lg'>
+                            <Button className='mt-[3rem] mb-0 w-[10rem] h-[3rem] text-lg bg-cyan-700'>
                                 Curriculum Vitae
                             </Button>
                         </a>

@@ -21,7 +21,7 @@ export default function Experience(props) {
 
 
             <Hud renderPriority={1}>
-                <OrbitControls fov={45} autoRotate autoRotateSpeed={.5} enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
+                <OrbitControls fov={45} autoRotate={w > 7 ? true : false} autoRotateSpeed={.5} enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
                 <EarthScene />
             </Hud>
 

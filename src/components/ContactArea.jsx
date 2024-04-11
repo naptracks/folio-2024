@@ -18,7 +18,7 @@ export default function ContactArea(props) {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className='text-[1rem] mr-[-1rem]'>
+                        <NavigationMenuTrigger className='text-[1rem] mr-[-1rem] text-cyan-800'>
                             Contact</NavigationMenuTrigger>
                         <NavigationMenuContent >
                             <NavigationMenuLink>
@@ -34,7 +34,7 @@ export default function ContactArea(props) {
                                         César Martel
                                     </ListItem>
                                     <ListItem target='_blank' href="https://github.com/naptracks" title="GitHub">
-                                        cesarmartel
+                                        @naptracks
                                     </ListItem>
                                     {/* <ListItem href="" title="Malt">
                                         César Martel
@@ -60,12 +60,12 @@ const ListItem = React.forwardRef(({ className, title, children,target,  ...prop
                 <a target={target}
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 font-light rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 font-light rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-cyan-600/10 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">{title}</div>
+                    <div className="text-sm text-cyan-700 font-medium leading-none">{title}</div>
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         {children}
                     </p>

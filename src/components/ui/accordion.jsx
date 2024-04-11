@@ -22,7 +22,7 @@ const AccordionTrigger = React.forwardRef(({ className, children, ...props }, re
       {...props}>
       {children}
       <span
-        className=" shrink-0 text-zinc-900 transition-transform duration-300 text-[1.8rem]" >+</span>
+        className=" shrink-0 text-cyan-700 transition-transform duration-300 text-[1.8rem]" >+</span>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))

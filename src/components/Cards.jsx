@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
-import {  useFrame } from '@react-three/fiber'
+import {  useFrame, useThree } from '@react-three/fiber'
 import { useCursor, Image, Text } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 import { easing } from 'maath'
@@ -83,27 +83,14 @@ const images = [
 
 const Cards = (props) => {
 
-    // const largeScreen = w > 7
-    // const mediumScreen = w < 7 && w > 5
-    // const smallScreen = w < 5
 
-    // const scale = mediumScreen ? 1.3 : (smallScreen ? 2 : 1)
-    // const position = largeScreen ? [0, 0, 0] : (mediumScreen ? [0, -1, 0] : [0, -2.5, 0])
-    // const args = largeScreen ? [3,1,0.1] : (mediumScreen ? [1.5,.7,0.1] : [.9,.5,0.1])
-
-    // const rocket = useGLTF('/icon-rocket.glb')
 
 
     return (
         <group  {...props}>
-            {/* <fog attach="fog" args={['#191920', 0, 15]} /> */}
             <group position={[0, -0.5, 0]} >
                 <Frames images={images} />
-                {/* <group scale={scale} position={position}>
-                    <RoundedBox args={args} position={[0, 3.4, 3.5]} material-color='white' />
-
-                    <Text fontSize={.5 * w * .06} fontWeight={900} color={'black'} position={[0, 3.4, 3.58]} >PROJETS</Text>
-                </group> */}
+              
             </group>
         </group>
     )
@@ -114,11 +101,15 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
     const clicked = useRef()
     const [, params] = useRoute('/item/:id')
     const [, setLocation] = useLocation()
+    const { width: w } = useThree(state => state.viewport)
+
+    
     useEffect(() => {
+        
         clicked.current = ref.current.getObjectByName(params?.id)
         if (clicked.current) {
             clicked.current.parent.updateWorldMatrix(true, true)
-            clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 1.1))
+            clicked.current.parent.localToWorld(p.set(.2, GOLDENRATIO / 2, w > 7 ? 1.2 : 1.6))
             clicked.current.parent.getWorldQuaternion(q)
         } else {
             p.set(0, 0, 5.5)

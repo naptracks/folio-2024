@@ -11,7 +11,7 @@ import { Astronaut } from './earth/Earth'
 export default function Scene(props) {
 
     const iss = useGLTF('/iss.glb')
-
+    
 
     return (
         <group    {...props}>

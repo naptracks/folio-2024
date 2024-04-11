@@ -25,9 +25,9 @@ function App() {
 
       <div className="main-container hide-scrollbar max-w-[1600px]">
         <div className="nav">
-          <h1 className="label" />
+          <h1 className="label text-cyan-800" />
           <div />
-          <span className="caption" />
+          <span className="caption text-cyan-800" />
           <div />
 
           <ContactArea className='mt-[-4px] lg:mt-0' />
@@ -35,7 +35,7 @@ function App() {
         </div>
         <div style={{ position: 'absolute', top: '60px', left: '2em', right: '2em', display: 'flex', justifyContent: 'space-between', height: '10px', }}>
           {
-            ['+', '+', '+', '+'].map((_, i) => <p style={{ fontSize: '2.4rem', fontWeight: '300' }} key={i}>{_}</p>)
+            ['+', '+', '+', '+'].map((_, i) => <p className='text-cyan-700' style={{ fontSize: '2.4rem', fontWeight: '300' }} key={i}>{_}</p>)
           }
         </div>
         <Canvas drp={[1, 1.5]} gl={{ antialias: false }} shadows className='hide-scrollbar' style={{ borderRadius: 20 }} >
