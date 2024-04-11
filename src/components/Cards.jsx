@@ -26,8 +26,8 @@ const images = [
         position: [-0.8 * x, 0, -0.6 * x], rotation: [0, 0, 0], name: 'projet2', url: '/projects/digital-hippo.png',
         info: {
             title: 'Hippo Commerce',
-            link: '',
-            github: '',
+            link: 'https://digitalhippo-dun.vercel.app/',
+            github: 'https://github.com/naptracks',
             technos: 'NextJS, NodeJS, Tailwindcss, PayloadCMS, tRPC, MongoDB'
         }
     },
@@ -36,7 +36,7 @@ const images = [
         info: {
             title: 'Marc Bourreau',
             link: 'https://marc-bourreau.web.app/',
-            github: '',
+            github: 'https://github.com/naptracks',
             technos: 'ReactJS, NodeJS, Firebase'
         }
     },
@@ -45,8 +45,8 @@ const images = [
         position: [-1.75 * x, 0, 0.25 * x], rotation: [0, Math.PI / 2.5, 0], name: 'projet4', url: '/projects/superpowerpdf.png',
         info: {
             title: 'SupperPowerPDF',
-            link: '',
-            github: '',
+            link: 'https://superpowerpdf.vercel.app/',
+            github: 'https://github.com/naptracks/superpowerpdf',
             technos: 'NextJS, NodeJS, TS, Tailwindcss, OpenAI, Pinecone, tRPC, Prisma, ReactQuery'
         }
     },
@@ -54,8 +54,8 @@ const images = [
         position: [-2.15 * x, 0, 1.9 * x], rotation: [0, Math.PI / 2.5, 0], name: 'projet5', url: '/projects/le-comptoir-des-roses.png',
         info: {
             title: 'Le Comptoir des Roses',
-            link: '',
-            github: '',
+            link: 'https://lecomptoirdesroses-frejus.com',
+            github: 'https://github.com/naptracks',
             technos: 'ReactJS, NodeJS, Firebase, TypeScript'
         }
     },
@@ -66,7 +66,7 @@ const images = [
         info: {
             title: 'Awaken',
             link: 'https://awaken.io',
-            github: '',
+            github: 'https://github.com/naptracks',
             technos: 'NextJS, NodeJS, Wordpress CMS, AWS'
         }
     },
@@ -74,8 +74,8 @@ const images = [
         position: [2.15 * x, 0, 1.9 * x], rotation: [0, -Math.PI / 2.5, 0], name: 'projet8', url: '/projects/marble-game.png',
         info: {
             title: 'Marble Game',
-            link: '',
-            github: '',
+            link: 'https://marble-game-2024.web.app/',
+            github: 'https://github.com/naptracks/marble-game',
             technos: 'ReactJS, ThreeJS, React Three Fiber, GSAP, Tailwindcss'
         }
     },
@@ -183,8 +183,8 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
                         {title}
                     </Text>
 
-                <Text maxWidth={0.1}  color='white' anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
-                    {github}
+                <Text onClick={() => window.open(github, "_blank")} maxWidth={0.1}  color='white' anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
+                    GitHub
                 </Text>
                 <Text maxWidth={0.1} color='white' anchorX="left" anchorY={.4} position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
                     {technos}
