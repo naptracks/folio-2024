@@ -5,8 +5,9 @@ import { Stars, } from '@react-three/drei'
 import Experience from './components/Experience'
 import { Perf } from 'r3f-perf'
 import ContactArea from './components/ContactArea'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import Placeholder from './components/Placeholder'
+import { useLocation, useRoute, useRouter } from 'wouter'
 
 
 
@@ -18,6 +19,7 @@ function App() {
     msOverflowStyle: 'none', // IE and Edge
     display: '-webkit-scrollbar' // Chrome, Safari, and Opera
   };
+
 
   return (
 
@@ -38,7 +40,7 @@ function App() {
             ['+', '+', '+', '+'].map((_, i) => <p className='text-cyan-700' style={{ fontSize: '2.4rem', fontWeight: '300' }} key={i}>{_}</p>)
           }
         </div>
-        <Canvas drp={[1, 1.5]} gl={{ antialias: false }} shadows className='hide-scrollbar' style={{ borderRadius: 20 }} >
+        <Canvas drp={[1, 1.5]} gl={{ antialias: true, pixelRatio: Math.min(window.devicePixelRatio, 2) }} shadows className='hide-scrollbar' style={{ borderRadius: 20 }} >
           <color attach="background" args={['#191920']} />
           <Suspense fallback={
             < Placeholder />

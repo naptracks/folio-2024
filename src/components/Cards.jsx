@@ -141,7 +141,6 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
     const [rnd] = useState(() => Math.random())
     const ref = useRef()
 
-    console.log(ref.current)
 
 
     const isActive = params?.id === name
@@ -178,12 +177,13 @@ function Frame({ name, url, info, c = new THREE.Color(), ...props }) {
             </mesh>
 
             <mesh>
-                    <Text onPointerOver={(e) => (e.stopPropagation(), hover(true))}
-                        onPointerOut={() => hover(false)} ref={ref} onClick={() => window.open(link, "_blank")} position={[0.55, GOLDENRATIO, 0]} maxWidth={.7} anchorX="left" anchorY="top" fontWeight="bold" color='white' toneMapped fontSize={0.065}>
-                        {title}
-                    </Text>
+                <Text onPointerOver={(e) => (e.stopPropagation(), hover(true))}
+                    onPointerOut={() => hover(false)} ref={ref} onClick={() => window.open(link, "_blank")} position={[0.55, GOLDENRATIO, 0]} maxWidth={.7} anchorX="left" anchorY="top" fontWeight="bold" color='white' toneMapped fontSize={0.065}>
+                    {title}
+                </Text>
 
-                <Text onClick={() => window.open(github, "_blank")} maxWidth={0.1}  color='white' anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
+                <Text maxWidth={.7} onPointerOver={(e) => (e.stopPropagation(), hover(true))}
+                    onPointerOut={() => hover(false)} ref={ref} onClick={() => window.open(github, "_blank")} color='white' anchorX="left" anchorY={.2} position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
                     GitHub
                 </Text>
                 <Text maxWidth={0.1} color='white' anchorX="left" anchorY={.4} position={[0.55, GOLDENRATIO, 0]} fontSize={0.055}>
