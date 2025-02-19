@@ -5,6 +5,7 @@ import { IoIosFlash } from "react-icons/io";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { GiStrong } from "react-icons/gi";
 import { Button } from "./ui/button";
+import { cv } from "@/CV";
 
 
 
@@ -85,7 +86,7 @@ export default function Header(props) {
                             </AccordionItem>
 
                         </Accordion>
-                        <a href="https://firebasestorage.googleapis.com/v0/b/folio-cm-2024.appspot.com/o/CesarMartel_CV2024.pdf?alt=media&token=c235ba4f-752a-4061-a2eb-4446ab21a9b7" target="_blank">
+                        <a href={cv} target="_blank">
                             <Button className='mt-[3rem] mb-0 w-[10rem] h-[3rem] text-lg bg-cyan-700'>
                                 Curriculum Vitae
                             </Button>

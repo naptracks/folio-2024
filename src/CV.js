@@ -1,0 +1,1 @@
+export const cv = "https://firebasestorage.googleapis.com/v0/b/folio-cm-2024.appspot.com/o/CV_english_2025.pdf?alt=media&token=c0ab8a4b-1463-43cc-899d-5e15b7756072"
